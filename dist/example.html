@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
+
     <script src="open-accessibility.min.js"></script>
     <link rel="stylesheet" href="open-accessibility.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -16,6 +13,9 @@
 
 </head>
 <body>
+<button class="open-accessibility-expand-button">
+    <i class="fa fa-universal-access" title="פתח חלונית נגישות"></i>
+</button>
 <h1>ggg  adsf</h1>
 <p>This is a very simple HTML document</p>
 <p>It only has two paragraphs</p>
@@ -25,89 +25,11 @@
 <p>It only has two paragraphs</p>
 <br><br><br><br>
 
-<div class="open-accessibility-cursor-workaround open-accessibility-hidden"></div>
 
-<button class="open-accessibility-expand-button">
-    <i class="fa fa-universal-access" title="פתח חלונית נגישות"></i>
-</button>
-
-<div class="open-accessibility open-accessibility-collapsed">
-    <div class="open-accessibility-container">
-
-
-        <div class="open-accessibility-menu open-accessibility-hidden">
-            <div class="open-accessibility-close-button">
-                <i class="fa fa-times" title="סגור חלונית נגישות"></i>
-            </div>
-            <div class="open-accessibility-menu-scroll">
-                <h4>טקסט</h4>
-                <div class="open-accessibility-menu-button open-accessibility-zoom-out-button">
-                    <i class="fa fa-search-minus open-accessibility-icon" aria-hidden="true"></i>
-                    <div class="open-accessibility-icon-desc">הקטן</div>
-                </div>
-
-                <div class="open-accessibility-menu-button open-accessibility-zoom-in-button">
-                    <i class="fa fa-search-plus open-accessibility-icon" aria-hidden="true"></i>
-                    <div class="open-accessibility-icon-desc">הגדל</div>
-                </div>
-
-                <h4>צבעים</h4>
-                <div class="open-accessibility-menu-button open-accessibility-invert-button">
-                    <i class="fa fa-desktop open-accessibility-icon" aria-hidden="true"></i>
-                    <div class="open-accessibility-icon-desc">היפוך צבעים</div>
-                </div>
-                <div class="open-accessibility-menu-button open-accessibility-brightness-button">
-                    <i class="fa fa-sun-o open-accessibility-icon" aria-hidden="true"></i>
-                    <div class="open-accessibility-icon-desc">בהירות</div>
-                </div>
-                <div class="open-accessibility-menu-button open-accessibility-contrast-button">
-                    <i class="fa fa-adjust open-accessibility-icon" aria-hidden="true"></i>
-                    <div class="open-accessibility-icon-desc">ניגודיות</div>
-                </div>
-                <div class="open-accessibility-menu-button open-accessibility-monochrome-button">
-                    <i class="fa fa-low-vision open-accessibility-icon" aria-hidden="true"></i>
-                    <div class="open-accessibility-icon-desc">גווני אפור</div>
-                </div>
-
-                <h4>הדגשות</h4>
-                <div class="open-accessibility-menu-button open-accessibility-cursor-button">
-                    <i class="fa fa-mouse-pointer open-accessibility-icon" aria-hidden="true"></i>
-                    <div class="open-accessibility-icon-desc">עכבר גדול</div>
-                </div>
-                <div class="open-accessibility-menu-button open-accessibility-highlighted-links-button">
-                    <i class="fa fa-link open-accessibility-icon" aria-hidden="true"></i>
-                    <div class="open-accessibility-icon-desc">הדגשת קישורים</div>
-                </div>
-                <div class="open-accessibility-menu-button open-accessibility-highlighted-headers-button">
-                    <i class="fa fa-header open-accessibility-icon" aria-hidden="true"></i>
-                    <div class="open-accessibility-icon-desc">הדגשת כותרות</div>
-                </div>
-
-
-                <div style="clear: both"></div>
-                <hr>
-                <div class="open-accessibility-menu-button open-accessibility-reset-button">
-                    <i class="fa fa-undo open-accessibility-icon" aria-hidden="true"></i>
-                    <div class="open-accessibility-icon-desc">בטל שינויים</div>
-                </div>
-                <div style="clear: both"></div>
-
-                <div class="open-accessibility-menu-footer">
-
-                </div>
-
-            </div>
-
-
-
-
-        </div>
-    </div>
-</div>
 
 <script>
     openAccessibility({
-        isMenuOpened: false,
+        isMenuOpened: true,
         /* highlightedLinks: false,
          isMobileEnabled: true,
          grayscale: 0,
@@ -123,8 +45,10 @@
         brightness: 100,
         textSelector: 'p',
         invert: false,
-        position: 'bottom left',
-        footerText: 'תוסף נגישות עבור אתר'
+        position: 'static',
+        footerText: '<a href="https://www.deansoffer.co.il/">   פתרונות אינטרנט ' +
+        '<img class="img-logo" src="https://www.deansoffer.co.il/wp-content/themes/deans/img/logo.png" title="DS בניית אתרים" style="width: 50px;">' +
+        '</a>'
     });
 </script>
 </body>

@@ -9,6 +9,10 @@ $offset: 30px;
   color: #2196f3;
   border-radius: 50%;
   padding:10px;
+  &.pos-static{
+    position: static;
+
+  }
   &.pos-top-left {
     top: $offset;
     left: $offset;
@@ -34,14 +38,14 @@ $offset: 30px;
     $toggle-button-icon: 60px;
     $toggle-button-size:70px;
     $offset: 0px;
-
-    cursor: pointer;
-    position: absolute;
-    line-height: $toggle-button-size;
-    width: $toggle-button-width;
-    height: $toggle-button-icon;
-    text-align: center;
-
+    height:auto;
+    width:auto;
+    padding:0;
+    background: transparent;
+    border: none;
+    i{
+      font-size:2rem;
+    }
   }
 }
 

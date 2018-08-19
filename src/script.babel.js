@@ -1,4 +1,67 @@
-//var TEMPLATE = @@include('./templates/menu.html');
+var TEMPLATE = '<div class="open-accessibility-cursor-workaround open-accessibility-hidden"></div>\n' +
+    '<div class="open-accessibility open-accessibility-collapsed">\n' +
+    '    <div class="open-accessibility-container">\n' +
+    '        <div class="open-accessibility-menu">\n' +
+    '            <div class="open-accessibility-close-button">\n' +
+    '                <i class="fa fa-times" title="סגור חלונית נגישות"></i>\n' +
+    '                <span class="open-accessibility-header-text">\n' +
+    '                תפריט נגישות -\n' +
+    '                    </span>\n' +
+    '            </div>\n' +
+    '            <div class="open-accessibility-menu-scroll">\n' +
+    '                <h4>טקסט</h4>\n' +
+    '                <div class="open-accessibility-menu-button open-accessibility-zoom-out-button">\n' +
+    '                    <i class="fa fa-search-minus open-accessibility-icon" aria-hidden="true"></i>\n' +
+    '                    <div class="open-accessibility-icon-desc">הקטן</div>\n' +
+    '                </div>\n' +
+    '                <div class="open-accessibility-menu-button open-accessibility-zoom-in-button">\n' +
+    '                    <i class="fa fa-search-plus open-accessibility-icon" aria-hidden="true"></i>\n' +
+    '                    <div class="open-accessibility-icon-desc">הגדל</div>\n' +
+    '                </div>\n' +
+    '                <h4>צבעים</h4>\n' +
+    '                <div class="open-accessibility-menu-button open-accessibility-invert-button">\n' +
+    '                    <i class="fa fa-desktop open-accessibility-icon" aria-hidden="true"></i>\n' +
+    '                    <div class="open-accessibility-icon-desc">היפוך צבעים</div>\n' +
+    '                </div>\n' +
+    '                <div class="open-accessibility-menu-button open-accessibility-brightness-button">\n' +
+    '                    <i class="fa fa-sun-o open-accessibility-icon" aria-hidden="true"></i>\n' +
+    '                    <div class="open-accessibility-icon-desc">בהירות</div>\n' +
+    '                </div>\n' +
+    '                <div class="open-accessibility-menu-button open-accessibility-contrast-button">\n' +
+    '                    <i class="fa fa-adjust open-accessibility-icon" aria-hidden="true"></i>\n' +
+    '                    <div class="open-accessibility-icon-desc">ניגודיות</div>\n' +
+    '                </div>\n' +
+    '                <div class="open-accessibility-menu-button open-accessibility-monochrome-button">\n' +
+    '                    <i class="fa fa-low-vision open-accessibility-icon" aria-hidden="true"></i>\n' +
+    '                    <div class="open-accessibility-icon-desc">גווני אפור</div>\n' +
+    '                </div>\n' +
+    '                <h4>הדגשות</h4>\n' +
+    '                <div class="open-accessibility-menu-button open-accessibility-cursor-button">\n' +
+    '                    <i class="fa fa-mouse-pointer open-accessibility-icon" aria-hidden="true"></i>\n' +
+    '                    <div class="open-accessibility-icon-desc">עכבר גדול</div>\n' +
+    '                </div>\n' +
+    '                <div class="open-accessibility-menu-button open-accessibility-highlighted-links-button">\n' +
+    '                    <i class="fa fa-link open-accessibility-icon" aria-hidden="true"></i>\n' +
+    '                    <div class="open-accessibility-icon-desc">הדגשת קישורים</div>\n' +
+    '                </div>\n' +
+    '                <div class="open-accessibility-menu-button open-accessibility-highlighted-headers-button">\n' +
+    '                    <i class="fa fa-header open-accessibility-icon" aria-hidden="true"></i>\n' +
+    '                    <div class="open-accessibility-icon-desc">הדגשת כותרות</div>\n' +
+    '                </div>\n' +
+    '                <div style="clear: both"></div>\n' +
+    '                <hr>\n' +
+    '                <div class="open-accessibility-menu-button open-accessibility-reset-button">\n' +
+    '                    <i class="fa fa-undo open-accessibility-icon" aria-hidden="true"></i>\n' +
+    '                    <div class="open-accessibility-icon-desc">בטל שינויים</div>\n' +
+    '                </div>\n' +
+    '                <div style="clear: both"></div>\n' +
+    '                <div class="open-accessibility-menu-footer">\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '</div>';
+
 var first_run = true;
 var LOCAL_STORAGE_OPTIONS_KEY = 'open-accessibility-config';
 
@@ -115,11 +178,11 @@ var openAccessibility = function (customOptions) {
 
 
     // -------------
-
-    // element.prepend(TEMPLATE);
-
     var html = document.querySelector('html');
     var body = document.querySelector('body');
+    body.innerHTML += (TEMPLATE);
+
+
     var container = document.querySelector(".open-accessibility");
     var menu = document.querySelector(".open-accessibility-menu");
 
@@ -150,6 +213,9 @@ var openAccessibility = function (customOptions) {
             break;
         case 'bottom right':
             expandButton.classList.add('pos-bottom-right');
+            break;
+        case 'static':
+            expandButton.classList.add('pos-static');
             break;
     }
 
@@ -256,8 +322,8 @@ var openAccessibility = function (customOptions) {
 
     // Click outside of the menu -> close
      document.addEventListener('click', (event) => {
-         if (!$(event.target).closest('.open-accessibility-expand-button').length) {
-             if (!$(event.target).closest('.open-accessibility').length) {
+         if (!event.target.closest('.open-accessibility-expand-button')) {
+             if (!event.target.closest('.open-accessibility')) {
                  if (options.isMenuOpened) {
                      options.isMenuOpened = false;
                      apply();
@@ -267,11 +333,11 @@ var openAccessibility = function (customOptions) {
      });
 
 
-    menu.classList.add('open-accessibility-hidden');
+    //menu.classList.add('open-accessibility-hidden');
 
     if (customOptions.isMenuOpened) {
         options.isMenuOpened = true;
-        menu.classList.remove('open-accessibility-hidden');
+        //menu.classList.remove('open-accessibility-hidden');
         expandButton.classList.add('open-accessibility-hidden')
     }
     else {
@@ -309,14 +375,14 @@ var openAccessibility = function (customOptions) {
         // OPEN
         if (options.isMenuOpened) {
             expandButton.classList.add('open-accessibility-hidden');
-            menu.classList.remove('open-accessibility-hidden');
+            //menu.classList.remove('open-accessibility-hidden');
             container.classList.remove("open-accessibility-collapsed");
             container.classList.add("open-accessibility-expanded");
         }
         // CLOSED
         else {
             expandButton.classList.remove('open-accessibility-hidden');
-            menu.classList.add('open-accessibility-hidden');
+            //menu.classList.add('open-accessibility-hidden');
             container.classList.remove("open-accessibility-expanded");
             container.classList.add("open-accessibility-collapsed");
         }
