@@ -1,0 +1,49 @@
+$offset: 30px;
+.open-accessibility-expand-button {
+  position: fixed;
+  background: #fff;
+  user-select: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 50px;
+  color: #2196f3;
+  border-radius: 50%;
+  padding:10px;
+  &.pos-top-left {
+    top: $offset;
+    left: $offset;
+  }
+  &.pos-top-right {
+    top: $offset;
+    right: $offset;
+  }
+  &.pos-bottom-left {
+    bottom: $offset;
+    left: $offset;
+
+  }
+  &.pos-bottom-right {
+    bottom: $offset;
+    right: $offset;
+  }
+
+  @media screen and (max-width: 780px) {
+
+    $toggle-button-width: 50px;
+    $toggle-button-hight: 55px;
+    $toggle-button-icon: 60px;
+    $toggle-button-size:70px;
+    $offset: 0px;
+
+    cursor: pointer;
+    position: absolute;
+    line-height: $toggle-button-size;
+    width: $toggle-button-width;
+    height: $toggle-button-icon;
+    text-align: center;
+
+  }
+}
+
+
+

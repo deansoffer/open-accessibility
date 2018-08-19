@@ -1,0 +1,43 @@
+.open-accessibility{
+  &-highlighted-links {
+    .highlighted-link {
+      text-decoration: underline !important;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active,
+    a * {
+      text-decoration: underline !important;
+    }
+  }
+
+  &-highlighted-headers {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-decoration: underline !important;
+    }
+  }
+
+  &-cursor {
+    *:hover, * {
+      cursor: url("images/cursor.png"), default;
+    }
+
+    &-workaround {
+      pointer-events: none;
+      position: absolute;
+      width: 38px;
+      height: 60px;
+      z-index: 1000;
+      background-image: url("images/cursor.png");
+    }
+  }
+
+}
