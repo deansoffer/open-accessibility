@@ -1,5 +1,5 @@
 
-Free accessibility tools menu for website maintainers powered by Pure javascript - no library needed. [See the demo](https://jossef.github.io/open-accessibility/)
+Free accessibility tools menu for website maintainers powered by Pure javascript - no library needed. [See the demo](https://www.deansoffer.co.il/)
 
 ### Getting Started
 lightweight pure javascript library, no jquery or external libraries needed. 
