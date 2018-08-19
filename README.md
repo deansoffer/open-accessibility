@@ -1,42 +1,41 @@
-![image](https://raw.githubusercontent.com/jossef/open-accessibility/master/misc/banner.png)
 
-[![Build Status](https://travis-ci.org/jossef/open-accessibility.svg?branch=master)](https://travis-ci.org/jossef/open-accessibility)
-
-Free accessibility tools menu for website maintainers powered by jQuery. [See the demo](https://jossef.github.io/open-accessibility/)
+Free accessibility tools menu for website maintainers powered by Pure javascript - no library needed. [See the demo](https://jossef.github.io/open-accessibility/)
 
 ### Getting Started
 lightweight pure javascript library, no jquery or external libraries needed. 
 
-#### CDN
-Add the following imports (make sure to import jQuery before)
-```
-<script src="https://cdn.rawgit.com/jossef/open-accessibility/master/dist/open-accessibility.min.js"></script>
-<link rel="stylesheet" href="https://cdn.rawgit.com/jossef/open-accessibility/master/dist/open-accessibility.min.css">
-```
 
-#### Bower
-
-```
-bower install open-accessibility --save
-```
-
-#### NPM
-
-```
-npm install open-accessibility --save
-```
 
 ### Initialization
 
 
 In order for the plugin to load, it has to be initialized like so:
 ```
-$('body').openAccessibility();
+ openAccessibility({
+        isMenuOpened: true,
+        highlightedLinks: false,
+        isMobileEnabled: true,
+        grayscale: 0,
+        contrast: 100,
+        maxZoomLevel: 3,
+        minZoomLevel: 0.5,
+        zoomStep: 0.2,
+        zoom: 1,
+        cursor: false,
+        highlightedHeaders: false,
+        brightness: 100,
+        textSelector: 'p',
+        invert: false,
+        position: 'static',
+        footerText: '<a href="https://www.deansoffer.co.il/">   פתרונות אינטרנט ' +
+        '<img class="img-logo" src="https://www.deansoffer.co.il/wp-content/themes/deans/img/logo.png" title="DS בניית אתרים" style="width: 50px;">' +
+        '</a>'
+    });
 ```
 
 In addition, some default options may be overidden on initialization:
 ```
-$('body').openAccessibility({
+openAccessibility({
   textSelector: 'h1,p'
 });
 ```
