@@ -13,9 +13,9 @@
 
 </head>
 <body>
-<button class="open-accessibility-expand-button">
+<div class="open-accessibility-expand-button">
     <i class="fa fa-universal-access" title="פתח חלונית נגישות"></i>
-</button>
+</div>
 <h1>ggg  adsf</h1>
 <p>This is a very simple HTML document</p>
 <p>It only has two paragraphs</p>
@@ -29,20 +29,18 @@
 
 <script>
     openAccessibility({
-        isMenuOpened: true,
+        isMenuOpened: false,
         /* highlightedLinks: false,
          isMobileEnabled: true,
          grayscale: 0,
-
-         contrast: 100,
          maxZoomLevel: 3,
          minZoomLevel: 0.5,
          zoomStep: 0.2,
          zoom: 1,
          cursor: false,
-
          highlightedHeaders: false,*/
         brightness: 100,
+        contrast: 100,
         textSelector: 'p',
         invert: false,
         position: 'static',

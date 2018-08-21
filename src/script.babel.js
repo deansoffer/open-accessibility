@@ -5,7 +5,7 @@ var TEMPLATE = '<div class="open-accessibility-cursor-workaround open-accessibil
     '            <div class="open-accessibility-close-button">\n' +
     '                <i class="fa fa-times" title="סגור חלונית נגישות"></i>\n' +
     '                <span class="open-accessibility-header-text">\n' +
-    '                תפריט נגישות -\n' +
+    '                תפריט נגישות \n' +
     '                    </span>\n' +
     '            </div>\n' +
     '            <div class="open-accessibility-menu-scroll">\n' +
@@ -148,27 +148,28 @@ var openAccessibility = function (customOptions) {
 
     customOptions = customOptions || {};
 
-    var defaultOptions = {
+    const defaultOptions = {
         isMenuOpened: false,
         highlightedLinks: false,
         isMobileEnabled: true,
         grayscale: 0,
         brightness: 100,
         contrast: 100,
+        invert: false,
         maxZoomLevel: 3,
         minZoomLevel: 0.5,
         zoomStep: 0.2,
         zoom: 1,
         cursor: false,
         textSelector: '.open-accessibility-text',
-        invert: false,
         highlightedHeaders: false,
         position: 'top right'
     };
-
+    console.log(defaultOptions);
     var userOptions = getUserOptions();
-    var initialOptions = Object.assign(defaultOptions, customOptions);
-    var options = Object.assign(initialOptions, userOptions, customOptions);
+    var initialOptions = Object.assign({},defaultOptions, customOptions);
+
+    var options = Object.assign({},initialOptions, userOptions, customOptions);
 
 
     if (!options.isMobileEnabled && isMobileBrowser()) {
@@ -180,7 +181,9 @@ var openAccessibility = function (customOptions) {
     // -------------
     var html = document.querySelector('html');
     var body = document.querySelector('body');
-    body.innerHTML += (TEMPLATE);
+    var menu_html = document.createElement("div");
+    menu_html.innerHTML = TEMPLATE;
+    body.appendChild(menu_html);
 
 
     var container = document.querySelector(".open-accessibility");
@@ -238,11 +241,9 @@ var openAccessibility = function (customOptions) {
 
     contrastButton.addEventListener('click', () => {
         options.contrast += 50;
-
         if (options.contrast > 150) {
             options.contrast = 50;
         }
-
         apply();
     });
 
@@ -258,15 +259,6 @@ var openAccessibility = function (customOptions) {
         apply();
     });
 
-    // -------------
-    // Reset
-
-    resetButton.addEventListener('click', () => {
-        options = Object.assign({}, initialOptions);
-        options.isMenuOpened = false;
-
-        apply();
-    });
 
     // -------------
     // Zoom
@@ -320,17 +312,30 @@ var openAccessibility = function (customOptions) {
         apply();
     });
 
+    // -------------
+    // Reset
+
+    resetButton.addEventListener('click', () => {
+        options = Object.assign({}, initialOptions);
+        options.isMenuOpened = false;
+        options.contrast = 100;
+        apply();
+
+        location.reload();
+    });
+
+
     // Click outside of the menu -> close
-     document.addEventListener('click', (event) => {
-         if (!event.target.closest('.open-accessibility-expand-button')) {
-             if (!event.target.closest('.open-accessibility')) {
-                 if (options.isMenuOpened) {
-                     options.isMenuOpened = false;
-                     apply();
-                 }
-             }
-         }
-     });
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.open-accessibility-expand-button')) {
+            if (!event.target.closest('.open-accessibility')) {
+                if (options.isMenuOpened) {
+                    options.isMenuOpened = false;
+                    apply();
+                }
+            }
+        }
+    });
 
 
     //menu.classList.add('open-accessibility-hidden');
@@ -353,16 +358,13 @@ var openAccessibility = function (customOptions) {
     var googleChrome = isGoogleChrome();
     if (!googleChrome) {
 
-        $(document).on('mousemove', function (e) {
+        document.addEventListener('mousemove', function (e) {
 
             if (!options.cursor) {
                 return;
             }
-
-            cursorWorkaround.css({
-                left: e.pageX / options.zoom,
-                top: e.pageY / options.zoom
-            });
+            cursorWorkaround.style.left = e.pageX / options.zoom;
+            cursorWorkaround.style.top = e.pageY / options.zoom;
         });
     }
 
@@ -370,7 +372,7 @@ var openAccessibility = function (customOptions) {
     apply();
 
     function apply() {
-        console.log(options);
+
         // ----------------
         // OPEN
         if (options.isMenuOpened) {
@@ -431,33 +433,38 @@ var openAccessibility = function (customOptions) {
         // TODO: body filter makes position fixed bug - try to find solution
         // Filters
 
+
+
+        html.style['filtehtmlr'] = null;
+        html.style['-ms-filter'] = null;
+        html.style['-moz-filter'] = null;
+        html.style['-webkit-filter'] = null;
+        html.style['-o-filter'] = null;
         var filters = [];
-        if (options.invert) {
+        if (options.invert != defaultOptions.invert) {
             filters.push('invert(1)');
         }
-        if (!first_run || options.contrast != 100)
+        if (options.contrast != defaultOptions.contrast)
             filters.push('contrast(' + options.contrast + '%)');
-        if (!first_run || options.brightness != 100)
+
+        if (options.brightness != defaultOptions.brightness)
             filters.push('brightness(' + options.brightness + '%)');
-        if (!first_run || options.grayscale != 0)
+        if (options.grayscale != defaultOptions.grayscale)
             filters.push('grayscale(' + options.grayscale + '%)');
 
-
-        var filterValue = filters.join(' ');
-        html.style['filtehtmlr'] = filterValue;
-        html.style['-ms-filter'] = filterValue;
-        html.style['-moz-filter'] = filterValue;
-        html.style['-webkit-filter'] = filterValue;
-        html.style['-o-filter'] = filterValue;
-
+        if (filters.length > 0) {
+            var filterValue = filters.join(' ');
+            html.style['filtehtmlr'] = filterValue;
+            html.style['-ms-filter'] = filterValue;
+            html.style['-moz-filter'] = filterValue;
+            html.style['-webkit-filter'] = filterValue;
+            html.style['-o-filter'] = filterValue;
+        }
         setUserOptions(options);
         first_run = false;
     }
 
 };
 
-openAccessibility.prototype.init = function () {
-    alert();
-};
 
 
