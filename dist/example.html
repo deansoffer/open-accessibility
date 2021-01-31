@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+    <!--
+    js and css
+    -->
     <script src="open-accessibility.min.js"></script>
     <link rel="stylesheet" href="open-accessibility.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    >
-
+    <!--
+    end js and css
+    -->
 
 </head>
 <body>
-<div class="open-accessibility-expand-button">
+<!--
+this is the element (class:open-accessibility-expand-button) that open accessibility menu
+2 extra sizes you can place inside class attribute: size-small / size-big
+you can place any icon instead of <i class=fa fa-universal-access>
+-->
+<div class="open-accessibility-expand-button size-small">
+    <div class="hide-expand-button" title="הסתר כפתור נגישות">&times;</div>
     <i class="fa fa-universal-access" title="פתח חלונית נגישות"></i>
 </div>
-<h1>ggg  adsf</h1>
+
+
+<!--
+dummy data
+-->
+<h1>Test headline</h1>
 <p>This is a very simple HTML document</p>
 <p>It only has two paragraphs</p>
 <p>It only has two paragraphs</p>
@@ -24,9 +40,14 @@
 <p>It only has two paragraphs</p>
 <p>It only has two paragraphs</p>
 <br><br><br><br>
+<!--
+end dummy data
+-->
 
 
-
+<!--
+place this code snippet at the end of your html file, before closing tag of body (</body>)
+-->
 <script>
     openAccessibility({
         isMenuOpened: false,
@@ -41,13 +62,19 @@
          highlightedHeaders: false,*/
         brightness: 100,
         contrast: 100,
-        textSelector: 'p',
+        textSelector: 'p,h1,h2,h3',
         invert: false,
-        position: 'static',
+        position: 'bottom left',
+        manifestLink: 'http://place-accessibility-manifest-url-here.com',
         footerText: '<a href="https://www.deansoffer.co.il/">   פתרונות אינטרנט ' +
-        '<img class="img-logo" src="https://www.deansoffer.co.il/wp-content/themes/deans/img/logo.png" title="DS בניית אתרים" style="width: 50px;">' +
-        '</a>'
+            '<img class="img-logo" src="https://www.deansoffer.co.il/wp-content/themes/deans/img/logo.png" title="DS בניית אתרים" style="height: 20px;">' +
+            '</a>'
     });
 </script>
+<!--
+end code snippet
+place this code snippet at the end of your html file, before closing tag of body (</body>)
+-->
+
 </body>
 </html>

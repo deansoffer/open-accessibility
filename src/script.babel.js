@@ -1,66 +1,70 @@
-var TEMPLATE = '<div class="open-accessibility-cursor-workaround open-accessibility-hidden"></div>\n' +
-    '<div class="open-accessibility open-accessibility-collapsed">\n' +
-    '    <div class="open-accessibility-container">\n' +
-    '        <div class="open-accessibility-menu">\n' +
-    '            <div class="open-accessibility-close-button">\n' +
-    '                <i class="fa fa-times" title="סגור חלונית נגישות"></i>\n' +
-    '                <span class="open-accessibility-header-text">\n' +
-    '                תפריט נגישות \n' +
-    '                    </span>\n' +
-    '            </div>\n' +
-    '            <div class="open-accessibility-menu-scroll">\n' +
-    '                <h4>טקסט</h4>\n' +
-    '                <div class="open-accessibility-menu-button open-accessibility-zoom-out-button">\n' +
-    '                    <i class="fa fa-search-minus open-accessibility-icon" aria-hidden="true"></i>\n' +
-    '                    <div class="open-accessibility-icon-desc">הקטן</div>\n' +
-    '                </div>\n' +
-    '                <div class="open-accessibility-menu-button open-accessibility-zoom-in-button">\n' +
-    '                    <i class="fa fa-search-plus open-accessibility-icon" aria-hidden="true"></i>\n' +
-    '                    <div class="open-accessibility-icon-desc">הגדל</div>\n' +
-    '                </div>\n' +
-    '                <h4>צבעים</h4>\n' +
-    '                <div class="open-accessibility-menu-button open-accessibility-invert-button">\n' +
-    '                    <i class="fa fa-desktop open-accessibility-icon" aria-hidden="true"></i>\n' +
-    '                    <div class="open-accessibility-icon-desc">היפוך צבעים</div>\n' +
-    '                </div>\n' +
-    '                <div class="open-accessibility-menu-button open-accessibility-brightness-button">\n' +
-    '                    <i class="fa fa-sun-o open-accessibility-icon" aria-hidden="true"></i>\n' +
-    '                    <div class="open-accessibility-icon-desc">בהירות</div>\n' +
-    '                </div>\n' +
-    '                <div class="open-accessibility-menu-button open-accessibility-contrast-button">\n' +
-    '                    <i class="fa fa-adjust open-accessibility-icon" aria-hidden="true"></i>\n' +
-    '                    <div class="open-accessibility-icon-desc">ניגודיות</div>\n' +
-    '                </div>\n' +
-    '                <div class="open-accessibility-menu-button open-accessibility-monochrome-button">\n' +
-    '                    <i class="fa fa-low-vision open-accessibility-icon" aria-hidden="true"></i>\n' +
-    '                    <div class="open-accessibility-icon-desc">גווני אפור</div>\n' +
-    '                </div>\n' +
-    '                <h4>הדגשות</h4>\n' +
-    '                <div class="open-accessibility-menu-button open-accessibility-cursor-button">\n' +
-    '                    <i class="fa fa-mouse-pointer open-accessibility-icon" aria-hidden="true"></i>\n' +
-    '                    <div class="open-accessibility-icon-desc">עכבר גדול</div>\n' +
-    '                </div>\n' +
-    '                <div class="open-accessibility-menu-button open-accessibility-highlighted-links-button">\n' +
-    '                    <i class="fa fa-link open-accessibility-icon" aria-hidden="true"></i>\n' +
-    '                    <div class="open-accessibility-icon-desc">הדגשת קישורים</div>\n' +
-    '                </div>\n' +
-    '                <div class="open-accessibility-menu-button open-accessibility-highlighted-headers-button">\n' +
-    '                    <i class="fa fa-header open-accessibility-icon" aria-hidden="true"></i>\n' +
-    '                    <div class="open-accessibility-icon-desc">הדגשת כותרות</div>\n' +
-    '                </div>\n' +
-    '                <div style="clear: both"></div>\n' +
-    '                <hr>\n' +
-    '                <div class="open-accessibility-menu-button open-accessibility-reset-button">\n' +
-    '                    <i class="fa fa-undo open-accessibility-icon" aria-hidden="true"></i>\n' +
-    '                    <div class="open-accessibility-icon-desc">בטל שינויים</div>\n' +
-    '                </div>\n' +
-    '                <div style="clear: both"></div>\n' +
-    '                <div class="open-accessibility-menu-footer">\n' +
-    '                </div>\n' +
-    '            </div>\n' +
-    '        </div>\n' +
-    '    </div>\n' +
-    '</div>';
+var TEMPLATE = `<div class="open-accessibility-cursor-workaround open-accessibility-hidden"></div>
+<div class="open-accessibility open-accessibility-collapsed">
+    <div class="open-accessibility-container">
+        <div class="open-accessibility-menu">
+            <div class="open-accessibility-close-button">
+                <i class="fa fa-times" title="סגור חלונית נגישות"></i>
+                <span class="open-accessibility-header-text">
+                תפריט נגישות 
+                    </span>
+            </div>
+            <div class="open-accessibility-menu-scroll">
+                <h4>טקסט</h4>
+                <div class="open-accessibility-menu-button open-accessibility-zoom-out-button">
+                    <i class="fa fa-search-minus open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">הקטן</div>
+                </div>
+                <div class="open-accessibility-menu-button open-accessibility-zoom-in-button">
+                    <i class="fa fa-search-plus open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">הגדל</div>
+                </div>
+                <h4>צבעים</h4>
+                <div class="open-accessibility-menu-button open-accessibility-invert-button">
+                    <i class="fa fa-desktop open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">היפוך צבעים</div>
+                </div>
+                <div class="open-accessibility-menu-button open-accessibility-brightness-button">
+                    <i class="fa fa-sun-o open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">בהירות</div>
+                </div>
+                <div class="open-accessibility-menu-button open-accessibility-contrast-button">
+                    <i class="fa fa-adjust open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">ניגודיות</div>
+                </div>
+                <div class="open-accessibility-menu-button open-accessibility-monochrome-button">
+                    <i class="fa fa-low-vision open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">גווני אפור</div>
+                </div>
+                <h4>הדגשות</h4>
+                <div class="open-accessibility-menu-button open-accessibility-cursor-button">
+                    <i class="fa fa-mouse-pointer open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">עכבר גדול</div>
+                </div>
+                <div class="open-accessibility-menu-button open-accessibility-highlighted-links-button">
+                    <i class="fa fa-link open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">הדגשת קישורים</div>
+                </div>
+                <div class="open-accessibility-menu-button open-accessibility-highlighted-headers-button">
+                    <i class="fa fa-header open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">הדגשת כותרות</div>
+                </div>
+                <div style="clear: both"></div>
+                <hr>
+                 <a class="open-accessibility-menu-button open-accessibility-manifest-button" target="_blank">
+                    <i class="fa fa-link open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">קישור להצהרת נגישות</div>
+                </a>
+                <div class="open-accessibility-menu-button open-accessibility-reset-button">
+                    <i class="fa fa-undo open-accessibility-icon" aria-hidden="true"></i>
+                    <div class="open-accessibility-icon-desc">בטל שינויים</div>
+                </div>
+                <div style="clear: both"></div>
+                <div class="open-accessibility-menu-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`;
 
 var first_run = true;
 var LOCAL_STORAGE_OPTIONS_KEY = 'open-accessibility-config';
@@ -102,14 +106,12 @@ function getUserOptions() {
     try {
         data = localStorage.getItem(LOCAL_STORAGE_OPTIONS_KEY);
         data = JSON.parse(data);
-    }
-    catch (e) {
+    } catch (e) {
     }
 
     if (data && typeof data === "object") {
         return data;
-    }
-    else {
+    } else {
         return {};
     }
 }
@@ -117,8 +119,7 @@ function getUserOptions() {
 function setUserOptions(options) {
     try {
         localStorage.setItem(LOCAL_STORAGE_OPTIONS_KEY, JSON.stringify(options));
-    }
-    catch (e) {
+    } catch (e) {
     }
 }
 
@@ -163,13 +164,14 @@ var openAccessibility = function (customOptions) {
         cursor: false,
         textSelector: '.open-accessibility-text',
         highlightedHeaders: false,
-        position: 'top right'
+        position: 'top right',
+        manifestLink: ''
     };
-    console.log(defaultOptions);
-    var userOptions = getUserOptions();
-    var initialOptions = Object.assign({},defaultOptions, customOptions);
 
-    var options = Object.assign({},initialOptions, userOptions, customOptions);
+    var userOptions = getUserOptions();
+    var initialOptions = Object.assign({}, defaultOptions, customOptions);
+
+    var options = Object.assign({}, initialOptions, userOptions, customOptions);
 
 
     if (!options.isMobileEnabled && isMobileBrowser()) {
@@ -202,8 +204,10 @@ var openAccessibility = function (customOptions) {
     var cursorWorkaround = document.querySelector(".open-accessibility-cursor-workaround");
     var highlightedLinksButton = document.querySelector(".open-accessibility-highlighted-links-button");
     var highlightedHeadersButton = document.querySelector(".open-accessibility-highlighted-headers-button");
+    var accessibilityManifestButton = document.querySelector(".open-accessibility-manifest-button");
 
 
+    accessibilityManifestButton.setAttribute('href', options.manifestLink);
     switch (options.position) {
         case 'top left':
             expandButton.classList.add('pos-top-left');
@@ -225,6 +229,13 @@ var openAccessibility = function (customOptions) {
     document.querySelector(".open-accessibility-menu-footer").innerHTML = options.footerText;
 
     // -------------
+    // Hide expend Button
+    document.querySelector(".open-accessibility-expand-button > .hide-expand-button").addEventListener('click', () => {
+        localStorage['open-accessibility-hide'] = 1;
+        expandButton.classList.add('open-accessibility-hidden');
+        resetAccesibility();
+    });
+    // -------------
     // Brightness
     brightnessButton.addEventListener('click', () => {
         options.brightness += 50;
@@ -238,7 +249,6 @@ var openAccessibility = function (customOptions) {
 
     // -------------
     // Contrast
-
     contrastButton.addEventListener('click', () => {
         options.contrast += 50;
         if (options.contrast > 150) {
@@ -312,15 +322,18 @@ var openAccessibility = function (customOptions) {
         apply();
     });
 
-    // -------------
-    // Reset
-
-    resetButton.addEventListener('click', () => {
+    function resetAccesibility() {
         options = Object.assign({}, initialOptions);
         options.isMenuOpened = false;
         options.contrast = 100;
         apply();
 
+    }
+
+    // -------------
+    // Reset
+    resetButton.addEventListener('click', () => {
+        resetAccesibility();
         location.reload();
     });
 
@@ -344,8 +357,7 @@ var openAccessibility = function (customOptions) {
         options.isMenuOpened = true;
         //menu.classList.remove('open-accessibility-hidden');
         expandButton.classList.add('open-accessibility-hidden')
-    }
-    else {
+    } else {
         options.isMenuOpened = false;
     }
 
@@ -372,6 +384,10 @@ var openAccessibility = function (customOptions) {
     apply();
 
     function apply() {
+        if(localStorage['open-accessibility-hide'] == 1){
+            expandButton.classList.add('open-accessibility-hidden');
+            return;
+        }
 
         // ----------------
         // OPEN
@@ -420,8 +436,7 @@ var openAccessibility = function (customOptions) {
             if (!googleChrome) {
                 cursorWorkaround.classList.remove('open-accessibility-hidden')
             }
-        }
-        else {
+        } else {
             if (!first_run) {
                 html.classList.remove('open-accessibility-cursor');
                 if (!googleChrome) {
@@ -432,7 +447,6 @@ var openAccessibility = function (customOptions) {
 
         // TODO: body filter makes position fixed bug - try to find solution
         // Filters
-
 
 
         html.style['filtehtmlr'] = null;

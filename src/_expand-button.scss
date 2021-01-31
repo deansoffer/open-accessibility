@@ -1,43 +1,80 @@
 $offset: 15px;
-$circle-size:60px;
+$circle-size: 60;
 .open-accessibility-expand-button {
   position: fixed;
   user-select: none;
   cursor: pointer;
   text-align: center;
- // font-size: 50px;
-  color: #2196f3;
- // border-radius: 50%;
- // padding:10px;
   z-index: 9998;
-
-
-  width: $circle-size;
-  height: $circle-size;
   border-radius: 50%;
   font-size: 40px;
   color: #fff;
-  line-height: $circle-size;
-  text-align: center;
+  line-height: $circle-size+px;
   background: #1972F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  &.pos-static{
+  &.size-small {
+    width: ($circle-size - 15)+px;
+    height: ($circle-size - 15)+px;
+
+    i:before {
+      font-size: ($circle-size - 5)+px;
+    }
+  }
+
+  .hide-expand-button {
+    position: absolute;
+    top: -20px;
+    left: -12px;
+    color: cornflowerblue;
+    display: none;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid cornflowerblue;
+  }
+
+  &:hover {
+    .hide-expand-button {
+      display: block;
+    }
+  }
+
+  &.size-big {
+    width: ($circle-size + 15)+px;
+    height: ($circle-size + 15)+px;
+
+    i:before {
+      font-size: ($circle-size + 5)+px;
+    }
+  }
+
+  &.pos-static {
     position: static;
 
   }
+
   &.pos-top-left {
     top: $offset;
     left: $offset;
   }
+
   &.pos-top-right {
     top: $offset;
     right: $offset;
   }
+
   &.pos-bottom-left {
     bottom: $offset;
     left: $offset;
 
   }
+
   &.pos-bottom-right {
     bottom: $offset;
     right: $offset;
