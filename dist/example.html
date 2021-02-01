@@ -24,7 +24,7 @@ this is the element (class:open-accessibility-expand-button) that open accessibi
 you can place any icon instead of <i class=fa fa-universal-access>
 -->
 <div class="open-accessibility-expand-button size-small">
-    <div class="hide-expand-button" title="הסתר כפתור נגישות">&times;</div>
+
     <i class="fa fa-universal-access" title="פתח חלונית נגישות"></i>
 </div>
 
@@ -50,9 +50,8 @@ place this code snippet at the end of your html file, before closing tag of body
 -->
 <script>
     openAccessibility({
-        isMenuOpened: false,
+        isMenuOpened: true,
         /* highlightedLinks: false,
-         isMobileEnabled: true,
          grayscale: 0,
          maxZoomLevel: 3,
          minZoomLevel: 0.5,
@@ -60,6 +59,7 @@ place this code snippet at the end of your html file, before closing tag of body
          zoom: 1,
          cursor: false,
          highlightedHeaders: false,*/
+        isMobileEnabled: true,
         brightness: 100,
         contrast: 100,
         textSelector: 'p,h1,h2,h3',

@@ -1,13 +1,14 @@
 var TEMPLATE = `<div class="open-accessibility-cursor-workaround open-accessibility-hidden"></div>
 <div class="open-accessibility open-accessibility-collapsed">
     <div class="open-accessibility-container">
-        <div class="open-accessibility-menu">
             <div class="open-accessibility-close-button">
                 <i class="fa fa-times" title="סגור חלונית נגישות"></i>
                 <span class="open-accessibility-header-text">
                 תפריט נגישות 
-                    </span>
+                </span>
             </div>
+            <div class="open-accessibility-menu">
+            <a href="#" class="hide-expand-button" title="הסתר כפתור נגישות">&times; הסתר לצמיתות כפתור נגישות</a>
             <div class="open-accessibility-menu-scroll">
                 <h4>טקסט</h4>
                 <div class="open-accessibility-menu-button open-accessibility-zoom-out-button">
@@ -230,11 +231,14 @@ var openAccessibility = function (customOptions) {
 
     // -------------
     // Hide expend Button
-    document.querySelector(".open-accessibility-expand-button > .hide-expand-button").addEventListener('click', () => {
-        localStorage['open-accessibility-hide'] = 1;
-        expandButton.classList.add('open-accessibility-hidden');
-        resetAccesibility();
-    });
+    const hideButton = menu.querySelector(".hide-expand-button");
+    if (hideButton) {
+        hideButton.addEventListener('click', () => {
+            localStorage['open-accessibility-hide'] = 1;
+            expandButton.classList.add('open-accessibility-hidden');
+            resetAccesibility();
+        });
+    }
     // -------------
     // Brightness
     brightnessButton.addEventListener('click', () => {
@@ -384,7 +388,7 @@ var openAccessibility = function (customOptions) {
     apply();
 
     function apply() {
-        if(localStorage['open-accessibility-hide'] == 1){
+        if (localStorage['open-accessibility-hide'] == 1) {
             expandButton.classList.add('open-accessibility-hidden');
             return;
         }
