@@ -166,7 +166,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-
+    direction: ltr;
     &::-webkit-scrollbar {
       width: 12px;               /* width of the entire scrollbar */
     }

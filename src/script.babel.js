@@ -234,9 +234,11 @@ var openAccessibility = function (customOptions) {
     const hideButton = menu.querySelector(".hide-expand-button");
     if (hideButton) {
         hideButton.addEventListener('click', () => {
+
             localStorage['open-accessibility-hide'] = 1;
             expandButton.classList.add('open-accessibility-hidden');
             resetAccesibility();
+            apply();
         });
     }
     // -------------
@@ -386,9 +388,20 @@ var openAccessibility = function (customOptions) {
 
 
     apply();
-
+    function showAccessibilityMenu(show){
+        if(show){
+            expandButton.classList.add('open-accessibility-hidden');
+            container.classList.remove("open-accessibility-collapsed");
+            container.classList.add("open-accessibility-expanded");
+        }else{
+            expandButton.classList.remove('open-accessibility-hidden');
+            container.classList.remove("open-accessibility-expanded");
+            container.classList.add("open-accessibility-collapsed");
+        }
+    }
     function apply() {
         if (localStorage['open-accessibility-hide'] == 1) {
+            showAccessibilityMenu(false);
             expandButton.classList.add('open-accessibility-hidden');
             return;
         }
@@ -396,17 +409,11 @@ var openAccessibility = function (customOptions) {
         // ----------------
         // OPEN
         if (options.isMenuOpened) {
-            expandButton.classList.add('open-accessibility-hidden');
-            //menu.classList.remove('open-accessibility-hidden');
-            container.classList.remove("open-accessibility-collapsed");
-            container.classList.add("open-accessibility-expanded");
+            showAccessibilityMenu(true);
         }
         // CLOSED
         else {
-            expandButton.classList.remove('open-accessibility-hidden');
-            //menu.classList.add('open-accessibility-hidden');
-            container.classList.remove("open-accessibility-expanded");
-            container.classList.add("open-accessibility-collapsed");
+            showAccessibilityMenu(false);
         }
 
         // ----------------
